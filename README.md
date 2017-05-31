@@ -1,4 +1,8 @@
-## Kalman Filter Ensemble-Based Tracker
+## Kalman Filter Ensemble-Based Tracker - Shared library
+
+```
+After building the library in qt, to create the install files run `prepareInstallFiles.sh` script in the root of project.
+```
 
 Authors : Pedro Senna (pedrosennapsc@unifei.edu.br) , Isabela Drummond and Guilherme Bastos
 

@@ -12,17 +12,13 @@ TARGET = KF-EBT
 CONFIG += console
 CONFIG -= app_bundle
 
-TEMPLATE = app
+TEMPLATE = lib
 
-INCLUDEPATH += /usr/local/include/
-INCLUDEPATH += /usr/local/include/opencv2/
-INCLUDEPATH += /usr/local/include/opencv/
 
 # Opencv
-LIBS += -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_features2d -lopencv_ml -lopencv_video -lopencv_calib3d -lopencv_videoio -lopencv_imgcodecs -ltrax
+LIBS += `pkg-config --libs opencv`
 
-SOURCES += main.cpp \
-    trackers/ASMS/colotracker.cpp \
+SOURCES += trackers/ASMS/colotracker.cpp \
     trackers/ASMS/histogram.cpp \
     trackers/ASMS/region.cpp \
     trackers/kcf/piotr_fhog/gradientMex.cpp \
@@ -41,7 +37,8 @@ SOURCES += main.cpp \
     trackers/NCC/ncc.cpp \
     trackers/tncc.cpp \
     trackers/tmosse.cpp \
-    trackers/tvdp.cpp
+    trackers/tvdp.cpp \
+    main.cpp
 
 HEADERS += \
     trackers/ASMS/colotracker.h \
@@ -71,9 +68,9 @@ HEADERS += \
     trackers/tmosse.h \
     trackers/tvdp.h
 
-DISTFILES += \
-    trackers/ASMS/CMakeLists.txt \
-    trackers/kcf/piotr_fhog/CMakeLists.txt \
-    trackers/kcf/CMakeLists.txt \
-    trackers/kcf/README.md \
-    README.md
+#DISTFILES += \
+#    trackers/ASMS/CMakeLists.txt \
+#    trackers/kcf/piotr_fhog/CMakeLists.txt \
+#    trackers/kcf/CMakeLists.txt \
+#    trackers/kcf/README.md \
+#    README.md
